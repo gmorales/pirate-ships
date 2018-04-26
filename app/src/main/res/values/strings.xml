@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Pirate Ships</string>
+    <string name="pirate_ship_image">Pirate Ship\'s Image</string>
+    <string name="need_internet">Need internet to fetch latest pirate ships!</string>
+    <string name="failed_load_try_again">Failed to load pirate ships. Please try again later.</string>
+    <string name="price">Price: $%d</string>
+    <string name="greeting_type">Greeting Type</string>
+    <string name="greeting_ah">Ahoi!</string>
+    <string name="greeting_ay">Aye Aye!</string>
+    <string name="greeting_ar">Arrr!</string>
+    <string name="greeting_yo">Yo ho hooo!</string>
+</resources>
