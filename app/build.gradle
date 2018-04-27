@@ -38,6 +38,12 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
 }
 
 androidExtensions {
@@ -92,6 +98,10 @@ dependencies {
 
     // Testing
     testImplementation 'junit:junit:4.12'
+    testImplementation 'com.nhaarman:mockito-kotlin:1.5.0'
+    testImplementation 'org.robolectric:robolectric:3.6.1'
+    testImplementation 'com.squareup.okhttp3:mockwebserver:3.9.0'
+
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    androidTestImplementation 'android.arch.core:core-testing:1.1.1'
 }

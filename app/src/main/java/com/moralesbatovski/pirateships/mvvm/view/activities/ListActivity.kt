@@ -59,7 +59,7 @@ class ListActivity : AppCompatActivity(), ListAdapter.PostInteractor {
      * This method observes the outcome and also update state of the screen accordingly.
      */
     private fun initiateDataListener() {
-        viewModel.postsOutcome.observe(this, Observer<Outcome<List<PirateShip>>> { outcome ->
+        viewModel.pirateShipsOutcome.observe(this, Observer<Outcome<List<PirateShip>>> { outcome ->
             when (outcome) {
 
                 is Outcome.Progress -> srlPrivateShips.isRefreshing = outcome.loading

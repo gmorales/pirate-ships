@@ -17,17 +17,17 @@ class ListRepository(private val local: ListDataContract.Local,
                      private val compositeDisposable: CompositeDisposable)
     : ListDataContract.Repository {
 
-    override val postFetchOutcome: PublishSubject<Outcome<List<PirateShip>>> = PublishSubject.create<Outcome<List<PirateShip>>>()
+    override val pirateShipFetchOutcome: PublishSubject<Outcome<List<PirateShip>>> = PublishSubject.create<Outcome<List<PirateShip>>>()
 
     var remoteFetch = true
 
     override fun fetchPirateShips() {
-        postFetchOutcome.onNext(Outcome.loading(true))
+        pirateShipFetchOutcome.onNext(Outcome.loading(true))
         compositeDisposable.add(local.getPirateShips()
                 .subscribeOn(scheduler.io())
                 .observeOn(scheduler.mainThread())
                 .subscribe({ pirateShips ->
-                    with(postFetchOutcome) {
+                    with(pirateShipFetchOutcome) {
                         onNext(Outcome.loading(false))
                         onNext(Outcome.success(pirateShips))
                     }
@@ -39,7 +39,7 @@ class ListRepository(private val local: ListDataContract.Local,
     }
 
     override fun refreshPirateShips() {
-        postFetchOutcome.onNext(Outcome.loading(true))
+        pirateShipFetchOutcome.onNext(Outcome.loading(true))
         compositeDisposable.add(remote.getPirateShips()
                 .subscribeOn(scheduler.io())
                 .observeOn(scheduler.mainThread())
@@ -53,7 +53,7 @@ class ListRepository(private val local: ListDataContract.Local,
     }
 
     override fun handleError(error: Throwable) {
-        with(postFetchOutcome) {
+        with(pirateShipFetchOutcome) {
             onNext(Outcome.loading(false))
             onNext(Outcome.failure(error))
         }

@@ -14,7 +14,7 @@ import io.reactivex.subjects.PublishSubject
 interface ListDataContract {
 
     interface Repository {
-        val postFetchOutcome: PublishSubject<Outcome<List<PirateShip>>>
+        val pirateShipFetchOutcome: PublishSubject<Outcome<List<PirateShip>>>
         fun fetchPirateShips()
         fun refreshPirateShips()
         fun savePirateShips(pirateShips: List<PirateShip>)

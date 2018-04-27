@@ -14,23 +14,23 @@ import io.reactivex.disposables.CompositeDisposable
  *
  * List View Model class.
  */
-class ListViewModel(private val repo: ListDataContract.Repository,
+class ListViewModel(private val repository: ListDataContract.Repository,
                     private val compositeDisposable: CompositeDisposable) : ViewModel() {
 
-    val postsOutcome: LiveData<Outcome<List<PirateShip>>> by lazy {
+    val pirateShipsOutcome: LiveData<Outcome<List<PirateShip>>> by lazy {
         val data = MutableLiveData<Outcome<List<PirateShip>>>()
-        compositeDisposable.add(repo.postFetchOutcome.subscribe({ t -> data.value = t }))
+        compositeDisposable.add(repository.pirateShipFetchOutcome.subscribe({ t -> data.value = t }))
         data
     }
 
     fun getPirateShips() {
-        if (postsOutcome.value == null) {
-            repo.fetchPirateShips()
+        if (pirateShipsOutcome.value == null) {
+            repository.fetchPirateShips()
         }
     }
 
     fun refreshPirateShips() {
-        repo.refreshPirateShips()
+        repository.refreshPirateShips()
     }
 
     override fun onCleared() {
