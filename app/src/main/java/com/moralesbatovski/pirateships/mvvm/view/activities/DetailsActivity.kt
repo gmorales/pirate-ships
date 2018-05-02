@@ -91,6 +91,11 @@ class DetailsActivity : AppCompatActivity() {
         }
     }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        fab_pirate_ship.visibility = View.GONE
+    }
+
     private fun setUpToolbar() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
