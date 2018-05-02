@@ -24,7 +24,7 @@ import javax.inject.Inject
  *
  * List Activity class.
  */
-class ListActivity : AppCompatActivity(), ListAdapter.PostInteractor {
+class ListActivity : AppCompatActivity(), ListAdapter.PirateShipInteractor {
 
     private val component by lazy { PirateShipDependencyHierarchy.listComponent() }
 
@@ -64,9 +64,7 @@ class ListActivity : AppCompatActivity(), ListAdapter.PostInteractor {
 
                 is Outcome.Progress -> srlPrivateShips.isRefreshing = outcome.loading
 
-                is Outcome.Success -> {
-                    adapter.setData(outcome.data)
-                }
+                is Outcome.Success -> adapter.setData(outcome.data)
 
                 is Outcome.Failure -> {
                     if (outcome.e is IOException) {
@@ -79,7 +77,7 @@ class ListActivity : AppCompatActivity(), ListAdapter.PostInteractor {
         })
     }
 
-    override fun postClicked(pirateShip: PirateShip, tvTitle: TextView, tvPrice: TextView, ivPirateShip: ImageView) {
+    override fun pirateShipClicked(pirateShip: PirateShip, tvTitle: TextView, tvPrice: TextView, ivPirateShip: ImageView) {
         DetailsActivity.start(context, pirateShip, tvTitle, tvPrice, ivPirateShip)
     }
 }

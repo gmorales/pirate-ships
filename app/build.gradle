@@ -54,7 +54,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     kapt 'android.arch.persistence.room:compiler:1.0.0'
-    kapt 'com.google.dagger:dagger-compiler:2.12'
+    kapt 'com.google.dagger:dagger-compiler:2.15'
 
     // Android Support
     implementation 'com.android.support:appcompat-v7:27.1.1'
@@ -77,7 +77,7 @@ dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.1.0'
 
     // Dagger 2
-    implementation 'com.google.dagger:dagger:2.12'
+    implementation 'com.google.dagger:dagger:2.15'
 
     // Reactive Extensions
     implementation 'io.reactivex.rxjava2:rxjava:2.1.7'
@@ -102,6 +102,6 @@ dependencies {
     testImplementation 'org.robolectric:robolectric:3.6.1'
     testImplementation 'com.squareup.okhttp3:mockwebserver:3.9.0'
 
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'android.arch.core:core-testing:1.1.1'
 }

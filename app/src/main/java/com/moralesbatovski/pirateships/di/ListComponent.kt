@@ -41,7 +41,6 @@ interface ListComponent {
 }
 
 @Module
-@ListScope
 class ListModule {
 
     @Provides

@@ -19,7 +19,6 @@ import org.junit.runner.RunWith
  * Testing class for [ListLocalData]
  */
 @RunWith(AndroidJUnit4::class)
-
 class ListLocalDataTest {
 
     private lateinit var pirateShipDB: PirateShipDB

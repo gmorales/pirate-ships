@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.pirate_ship_item.view.*
 class ListAdapter(private val picasso: Picasso) : RecyclerView.Adapter<ListAdapter.ListViewHolder>() {
 
     private var data = emptyList<PirateShip>()
-    var interactor: PostInteractor? = null
+    var interactor: PirateShipInteractor? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
         return ListViewHolder(LayoutInflater.from(parent?.context).inflate(R.layout.pirate_ship_item, parent, false))
@@ -32,7 +32,7 @@ class ListAdapter(private val picasso: Picasso) : RecyclerView.Adapter<ListAdapt
         if (holder?.itemView != null)
             holder.itemView.setOnClickListener { view ->
                 with(view) {
-                    interactor?.postClicked(data[position], tv_title, tv_price, iv_pirate_ship)
+                    interactor?.pirateShipClicked(data[position], tv_title, tv_price, iv_pirate_ship)
                 }
             }
     }
@@ -65,7 +65,7 @@ class ListAdapter(private val picasso: Picasso) : RecyclerView.Adapter<ListAdapt
         }
     }
 
-    interface PostInteractor {
-        fun postClicked(pirateShip: PirateShip, tvTitle: TextView, tvPrice: TextView, ivPirateShip: ImageView)
+    interface PirateShipInteractor {
+        fun pirateShipClicked(pirateShip: PirateShip, tvTitle: TextView, tvPrice: TextView, ivPirateShip: ImageView)
     }
 }
