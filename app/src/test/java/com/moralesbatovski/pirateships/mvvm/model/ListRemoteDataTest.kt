@@ -1,5 +1,7 @@
 package com.moralesbatovski.pirateships.mvvm.model
 
+import android.os.Build
+import com.moralesbatovski.pirateships.BuildConfig
 import com.moralesbatovski.pirateships.data.remote.PirateShipService
 import com.moralesbatovski.pirateships.testing.DummyData
 import com.nhaarman.mockito_kotlin.mock
@@ -9,6 +11,7 @@ import org.junit.Assert.assertEquals
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
+import org.robolectric.annotation.Config
 
 /**
  * @author Gustavo Morales
@@ -16,6 +19,7 @@ import org.robolectric.RobolectricTestRunner
  * Testing class for [ListRemoteData]
  */
 @RunWith(RobolectricTestRunner::class)
+@Config(constants = BuildConfig::class, sdk = [Build.VERSION_CODES.O_MR1])
 class ListRemoteDataTest {
 
     @Test

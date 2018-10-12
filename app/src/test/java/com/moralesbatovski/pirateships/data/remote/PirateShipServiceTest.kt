@@ -1,5 +1,7 @@
 package com.moralesbatovski.pirateships.data.remote
 
+import android.os.Build
+import com.moralesbatovski.pirateships.BuildConfig
 import com.moralesbatovski.pirateships.testing.DependencyProvider
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
@@ -9,6 +11,7 @@ import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
+import org.robolectric.annotation.Config
 import java.io.IOException
 
 /**
@@ -17,6 +20,7 @@ import java.io.IOException
  * API call tests for [PirateShipService]
  */
 @RunWith(RobolectricTestRunner::class)
+@Config(constants = BuildConfig::class, sdk = [Build.VERSION_CODES.O_MR1])
 class PirateShipServiceTest {
 
     private lateinit var pirateShipService: PirateShipService
