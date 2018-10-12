@@ -18,7 +18,7 @@ class ImageModule {
 
     @Provides
     @Singleton
-    fun providesOkhttp3Downloader(okHttpClient: OkHttpClient): OkHttp3Downloader {
+    fun providesOkHttp3Downloader(okHttpClient: OkHttpClient): OkHttp3Downloader {
         return OkHttp3Downloader(okHttpClient)
     }
 

@@ -33,7 +33,9 @@ object PirateShipDependencyHierarchy {
 
     fun detailsComponent(): DetailsComponent {
         if (detailsComponent == null) {
-            detailsComponent = DaggerDetailsComponent.builder().listComponent(listComponent()).build()
+            detailsComponent = DaggerDetailsComponent.builder().
+                    listComponent(listComponent())
+                    .build()
         }
         return detailsComponent as DetailsComponent
     }

@@ -1,7 +1,9 @@
 package com.moralesbatovski.pirateships.di
 
 import android.content.Context
+import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import com.moralesbatovski.pirateships.commons.Constants
 import dagger.Module
@@ -47,7 +49,7 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun providesOkhttpCache(context: Context): Cache {
+    fun providesOkHttpCache(context: Context): Cache {
         val cacheSize = 10 * 1024 * 1024 // 10 MB
         return Cache(context.cacheDir, cacheSize.toLong())
     }
@@ -55,7 +57,7 @@ class NetworkModule {
     @Provides
     @Singleton
     fun providesGson(): Gson {
-        return Gson()
+        return GsonBuilder().create()
     }
 
     @Provides
