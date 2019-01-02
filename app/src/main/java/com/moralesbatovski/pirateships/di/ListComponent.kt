@@ -1,7 +1,7 @@
 package com.moralesbatovski.pirateships.di
 
-import android.arch.persistence.room.Room
 import android.content.Context
+import androidx.room.Room
 import com.moralesbatovski.pirateships.commons.Constants
 import com.moralesbatovski.pirateships.data.local.PirateShipDB
 import com.moralesbatovski.pirateships.data.remote.PirateShipService

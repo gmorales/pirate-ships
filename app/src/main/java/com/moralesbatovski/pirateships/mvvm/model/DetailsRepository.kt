@@ -3,6 +3,7 @@ package com.moralesbatovski.pirateships.mvvm.model
 import com.moralesbatovski.pirateships.data.local.PirateShip
 import com.moralesbatovski.pirateships.networking.Outcome
 import com.moralesbatovski.pirateships.networking.Scheduler
+import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.subjects.PublishSubject
 
 /**
@@ -12,7 +13,8 @@ import io.reactivex.subjects.PublishSubject
  */
 class DetailsRepository(
         private val local: DetailsDataContract.Local,
-        private val scheduler: Scheduler
+        private val scheduler: Scheduler,
+        private val compositeDisposable: CompositeDisposable
 ) : DetailsDataContract.Repository {
 
     override val pirateShipFetchOutcome: PublishSubject<Outcome<PirateShip>> =
@@ -25,7 +27,7 @@ class DetailsRepository(
         }
 
         pirateShipFetchOutcome.onNext(Outcome.loading(true))
-        local.getPirateShipForId(id)
+        compositeDisposable.add(local.getPirateShipForId(id)
                 .subscribeOn(scheduler.io())
                 .observeOn(scheduler.mainThread())
                 .subscribe({ pirateShipDetail ->
@@ -33,7 +35,7 @@ class DetailsRepository(
                         onNext(Outcome.loading(false))
                         onNext(Outcome.success(pirateShipDetail))
                     }
-                }, { error -> handleError(error) })
+                }, { error -> handleError(error) }))
     }
 
     override fun handleError(error: Throwable) {

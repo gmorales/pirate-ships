@@ -1,12 +1,12 @@
 package com.moralesbatovski.pirateships.mvvm.view.adapters
 
-import android.support.v4.view.ViewCompat
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.view.ViewCompat
+import androidx.recyclerview.widget.RecyclerView
 import com.moralesbatovski.pirateships.R
 import com.moralesbatovski.pirateships.data.local.PirateShip
 import com.squareup.picasso.Picasso
@@ -23,18 +23,16 @@ class ListAdapter(private val picasso: Picasso) : RecyclerView.Adapter<ListAdapt
     var interactor: PirateShipInteractor? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
-        return ListViewHolder(LayoutInflater.from(parent?.context).inflate(R.layout.pirate_ship_item, parent, false))
+        return ListViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.pirate_ship_item, parent, false))
     }
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
-        holder?.bind(data[position], picasso)
-
-        if (holder?.itemView != null)
-            holder.itemView.setOnClickListener { view ->
-                with(view) {
-                    interactor?.pirateShipClicked(data[position], tv_title, tv_price, iv_pirate_ship)
-                }
+        holder.bind(data[position], picasso)
+        holder.itemView.setOnClickListener { view ->
+            with(view) {
+                interactor?.pirateShipClicked(data[position], tv_title, tv_price, iv_pirate_ship)
             }
+        }
     }
 
     override fun getItemCount(): Int {

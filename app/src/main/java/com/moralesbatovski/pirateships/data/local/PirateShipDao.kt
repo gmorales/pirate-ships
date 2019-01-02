@@ -1,6 +1,6 @@
 package com.moralesbatovski.pirateships.data.local
 
-import android.arch.persistence.room.*
+import androidx.room.*
 import io.reactivex.Flowable
 
 /**

@@ -1,7 +1,6 @@
 package com.moralesbatovski.pirateships.mvvm.model
 
-import android.os.Build
-import com.moralesbatovski.pirateships.BuildConfig
+import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.moralesbatovski.pirateships.data.remote.PirateShipService
 import com.moralesbatovski.pirateships.testing.DummyData
 import com.nhaarman.mockito_kotlin.mock
@@ -10,16 +9,13 @@ import io.reactivex.Flowable
 import org.junit.Assert.assertEquals
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.robolectric.RobolectricTestRunner
-import org.robolectric.annotation.Config
 
 /**
  * @author Gustavo Morales
  *
  * Testing class for [ListRemoteData]
  */
-@RunWith(RobolectricTestRunner::class)
-@Config(constants = BuildConfig::class, sdk = [Build.VERSION_CODES.O_MR1])
+@RunWith(AndroidJUnit4::class)
 class ListRemoteDataTest {
 
     @Test
@@ -35,8 +31,8 @@ class ListRemoteDataTest {
             assertNoErrors()
             assertValueCount(1)
             assertEquals(values()[0].success, true)
-            assertEquals(values()[0].ships.size, 2)
             assertEquals(values()[0].ships[0].id, 1)
+            assertEquals(values()[0].ships.size, 2)
             assertEquals(values()[0].ships[0].price, 999)
             assertEquals(values()[0].ships[1].id, 2)
             assertEquals(values()[0].ships[1].price, 2500)
