@@ -1,8 +1,7 @@
 package com.moralesbatovski.pirateships.mvvm.viewmodel
 
-import android.arch.lifecycle.Observer
-import android.os.Build
-import com.moralesbatovski.pirateships.BuildConfig
+import androidx.lifecycle.Observer
+import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.moralesbatovski.pirateships.data.local.PirateShip
 import com.moralesbatovski.pirateships.mvvm.model.ListDataContract
 import com.moralesbatovski.pirateships.networking.Outcome
@@ -16,8 +15,6 @@ import io.reactivex.subjects.PublishSubject
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.robolectric.RobolectricTestRunner
-import org.robolectric.annotation.Config
 import java.io.IOException
 
 /**
@@ -25,8 +22,7 @@ import java.io.IOException
  *
  * Testing for [ListViewModel]
  */
-@RunWith(RobolectricTestRunner::class)
-@Config(constants = BuildConfig::class, sdk = [Build.VERSION_CODES.O_MR1])
+@RunWith(AndroidJUnit4::class)
 class ListViewModelTest {
 
     private lateinit var viewModel: ListViewModel

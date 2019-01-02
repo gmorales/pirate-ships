@@ -1,9 +1,9 @@
 package com.moralesbatovski.pirateships.mvvm.model
 
-import android.arch.core.executor.testing.InstantTaskExecutorRule
-import android.arch.persistence.room.Room
-import android.support.test.InstrumentationRegistry
-import android.support.test.runner.AndroidJUnit4
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.room.Room
+import androidx.test.ext.junit.runners.AndroidJUnit4
+import androidx.test.platform.app.InstrumentationRegistry
 import com.moralesbatovski.pirateships.data.local.PirateShipDB
 import com.moralesbatovski.pirateships.testing.DummyData
 import com.moralesbatovski.pirateships.testing.TestScheduler
@@ -32,7 +32,7 @@ class ListLocalDataTest {
     @Before
     fun init() {
         pirateShipDB = Room
-                .inMemoryDatabaseBuilder(InstrumentationRegistry.getContext(), PirateShipDB::class.java)
+                .inMemoryDatabaseBuilder(InstrumentationRegistry.getInstrumentation().context, PirateShipDB::class.java)
                 .allowMainThreadQueries()
                 .build()
     }

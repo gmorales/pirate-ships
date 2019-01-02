@@ -1,6 +1,6 @@
 package com.moralesbatovski.pirateships.mvvm.viewmodel
 
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.ViewModel
 import com.moralesbatovski.pirateships.commons.PirateShipDependencyHierarchy
 import io.reactivex.disposables.CompositeDisposable
 

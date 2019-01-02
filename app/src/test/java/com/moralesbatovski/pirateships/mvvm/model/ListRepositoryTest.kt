@@ -1,7 +1,6 @@
 package com.moralesbatovski.pirateships.mvvm.model
 
-import android.os.Build
-import com.moralesbatovski.pirateships.BuildConfig
+import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.moralesbatovski.pirateships.data.local.PirateShip
 import com.moralesbatovski.pirateships.networking.Outcome
 import com.moralesbatovski.pirateships.testing.DummyData
@@ -13,8 +12,6 @@ import io.reactivex.observers.TestObserver
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.robolectric.RobolectricTestRunner
-import org.robolectric.annotation.Config
 import java.io.IOException
 
 /**
@@ -22,8 +19,7 @@ import java.io.IOException
  *
  * Testing class for [ListRepository]
  */
-@RunWith(RobolectricTestRunner::class)
-@Config(constants = BuildConfig::class, sdk = [Build.VERSION_CODES.O_MR1])
+@RunWith(AndroidJUnit4::class)
 class ListRepositoryTest {
 
     private lateinit var repository: ListRepository

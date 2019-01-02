@@ -1,8 +1,8 @@
 package com.moralesbatovski.pirateships.mvvm.viewmodel
 
-import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.moralesbatovski.pirateships.commons.PirateShipDependencyHierarchy
 import com.moralesbatovski.pirateships.data.local.PirateShip
 import com.moralesbatovski.pirateships.mvvm.model.ListDataContract
@@ -19,7 +19,7 @@ class ListViewModel(private val repository: ListDataContract.Repository,
 
     val pirateShipsOutcome: LiveData<Outcome<List<PirateShip>>> by lazy {
         val data = MutableLiveData<Outcome<List<PirateShip>>>()
-        compositeDisposable.add(repository.pirateShipFetchOutcome.subscribe({ t -> data.value = t }))
+        compositeDisposable.add(repository.pirateShipFetchOutcome.subscribe { t -> data.value = t })
         data
     }
 

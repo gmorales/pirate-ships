@@ -1,13 +1,13 @@
 package com.moralesbatovski.pirateships.mvvm.view.activities
 
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import com.moralesbatovski.pirateships.R
 import com.moralesbatovski.pirateships.commons.PirateShipDependencyHierarchy
 import com.moralesbatovski.pirateships.data.local.PirateShip
@@ -46,7 +46,7 @@ class ListActivity : AppCompatActivity(), ListAdapter.PirateShipInteractor {
         component.inject(this)
 
         adapter.interactor = this
-        rv_pirate_ships.adapter = adapter
+        rvPirateShips.adapter = adapter
         srlPrivateShips.setOnRefreshListener {
             viewModel.refreshPirateShips()
         }

@@ -1,6 +1,6 @@
 package com.moralesbatovski.pirateships.testing
 
-import android.support.annotation.VisibleForTesting
+import androidx.annotation.VisibleForTesting
 import com.moralesbatovski.pirateships.data.local.PirateShip
 import com.moralesbatovski.pirateships.data.remote.PirateShipResponse
 

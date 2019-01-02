@@ -34,8 +34,8 @@ class DetailsModule {
 
     @Provides
     @DetailsScope
-    fun detailsRepo(local: DetailsDataContract.Local, scheduler: Scheduler)
-            : DetailsDataContract.Repository = DetailsRepository(local, scheduler)
+    fun detailsRepo(local: DetailsDataContract.Local, scheduler: Scheduler, compositeDisposable: CompositeDisposable)
+            : DetailsDataContract.Repository = DetailsRepository(local, scheduler, compositeDisposable)
 
     @Provides
     @DetailsScope
